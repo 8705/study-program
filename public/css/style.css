@@ -1,0 +1,26 @@
+/* my style */
+ul {
+  padding-left:0px;
+}
+body {
+  background-color: #fcfcfc;
+}
+
+/* h* */
+h1, h2, h3, h4, h5, h6 {
+	margin: 40px 0 10px;
+	border-left: 5px solid #35acda;
+	padding-left: 8px;
+  border-bottom:none;
+}
+
+h1, h2 {
+	font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+	font-weight: normal;
+}
+img {
+  width: 80%;
+}
