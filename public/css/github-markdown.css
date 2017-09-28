@@ -82,10 +82,10 @@ p, blockquote, ul, ol, dl, li, table, pre {
 margin: 15px 0; }
 
 hr {
-background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
-border: 0 none;
+/*background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;*/
+border: 1px solid #ccc;
 color: #cccccc;
-height: 4px;
+height: 0px;
 padding: 0; }
 
 body > h2:first-child {
@@ -275,3 +275,10 @@ border-radius: 3px; }
 pre code, pre tt {
 background-color: transparent;
 border: none; }
+
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: 700;
+}
