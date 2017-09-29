@@ -10,13 +10,18 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+use App\Services\Mokuji\Mokuji;
 
-$router->get('/', function () use ($router) {
-  $content = "<h1>hogheog<h1>";
-  return view("layout", ['content'=>$content]);
+$router->get('/', function (Mokuji $mokuji) use ($router) {
+  $content = "<h1>ようこそ</h1>";
+
+  return view("layout", [
+    'content' => $content,
+    'dirs' => $mokuji->generate(),
+  ]);
 });
 
-$router->get('{chapter}/{title}', function ($chapter,$title) use ($router) {
+$router->get('{chapter}/{title}', function (Mokuji $mokuji,$chapter,$title) use ($router) {
   $chapter  = urldecode($chapter);
   $title    = urldecode($title);
   $md_file  = MD_PATH."/{$chapter}/{$title}.md";
@@ -28,22 +33,8 @@ $router->get('{chapter}/{title}', function ($chapter,$title) use ($router) {
   $parser->html5 = true;
   $html     = $parser->parse($markdown);
 
-  // 目次
-  $dirs = scandir(MD_PATH);
-  $dirs = array_filter($dirs, function($dir){
-    return !in_array($dir, ['.','..']);
-  });
-  $dirs = array_flip($dirs);
-  $list = [];
-  foreach ( $dirs as $dir => $val ) {
-    $files = scandir(MD_PATH.'/'.$dir);
-    $files = array_filter($files, function($file){
-      return !in_array($file, ['.','..']);
-    });
-    $dirs[$dir] = array_values($files);
-  }
   return view("layout", [
     'content' => $html,
-    'dirs'    => $dirs
+    'dirs' => $mokuji->generate(),
   ]);
 });

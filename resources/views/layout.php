@@ -18,15 +18,15 @@
 <body>
   <div class="container-fulid">
     <div class="row">
-      <div class="col-sm-2 col-md-2">
-        <p><a href="/">TOP</a></p>
+      <div id="side-menu" class="col-sm-2 col-md-2">
+        <p class="link-top"><a href="/">TOP</a></p>
         <ul class="chapers">
           <?php foreach ( $dirs as $dir => $mds ):?>
           <li>
             <p class="chaper"><?php echo $dir; ?></p>
             <ul class="titles">
               <?php foreach ( $mds as $md ):?>
-                <li><a href="/<?php echo $dir; ?>/<?php echo rtrim($md,'.md'); ?>"><?php echo rtrim($md,'.md'); ?></a></li>
+                <li><a class="arrow ku-arrow" href="/<?php echo $dir; ?>/<?php echo rtrim($md,'.md'); ?>"><?php echo rtrim($md,'.md'); ?></a></li>
               <?php endforeach; ?>
             </ul>
           </li>
