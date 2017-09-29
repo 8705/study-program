@@ -1,3 +1,9 @@
+/* for hljs */
+.hljs {
+  font-size: 1.3em;
+}
+
+
 /* my style */
 ul {
   padding-left:0px;

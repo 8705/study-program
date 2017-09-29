@@ -12,7 +12,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="/css/reset.css" rel="stylesheet"></link>
   <link href="/css/github-markdown.css" rel="stylesheet"></link>
+  <!-- <link href="/css/hightlightstyles/agate.css" rel="stylesheet"></link> -->
+  <!-- <link href="/css/hightlightstyles/dracula.css" rel="stylesheet"></link> -->
+  <!-- <link href="/css/hightlightstyles/gruvbox-dark.css" rel="stylesheet"></link> -->
+  <link href="/css/hightlightstyles/monokai.css" rel="stylesheet"></link>
   <link href="/css/style.css" rel="stylesheet"></link>
+  <!-- <script src="/js/syntaxhighlighter.js"></script> -->
 
 </head>
 <body>
@@ -41,5 +46,7 @@
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
