@@ -8,7 +8,7 @@ class MarkdownMokuji implements Mokuji {
         // 目次の配列を作成
         $dirs = scandir(MD_PATH);
         $dirs = array_filter($dirs, function($dir){
-          return !in_array($dir, ['.','..']);
+          return !in_array($dir, ['.','..','.DS_Store']);
         });
         $dirs = array_flip($dirs);
         $list = [];

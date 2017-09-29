@@ -5,9 +5,9 @@
 
 
 /* my style */
-ul {
+/*ul {
   padding-left:0px;
-}
+}*/
 html,body {
   background-color: #fcfcfc;
   height:100%;
@@ -37,12 +37,24 @@ h3, h4, h5, h6 {
 img {
   width: 80%;
 }
-li {
+/*li {
   margin: 0;
+}*/
+pre {
+  padding: 0;
+  border: none;
+}
+code.hljs {
+  padding:1em;
 }
 /* side menu */
 #side-menu {
 
+}
+#side-menu ol, #side-menu ul, #side-menu li {
+	list-style: none;
+  padding:0;
+  margin: 0;
 }
 .link-top {
   margin: 0;

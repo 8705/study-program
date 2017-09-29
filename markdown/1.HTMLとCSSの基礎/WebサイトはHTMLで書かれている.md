@@ -1,113 +1,102 @@
-# 見出し1
-## 見出し2
-### 見出し3
-#### 見出し4
-##### 見出し5
-###### 見出し6
+# WebサイトはHTMLで書かれている
 
-- リスト1
-    - ネスト リスト1_1
-        - ネスト リスト1_1_1
-        - ネスト リスト1_1_2
-    - ネスト リスト1_2
-- リスト2
-- リスト3
+* Webブラウザが何をしているか
+    * Webブラウザとは「ブラウザ」の一種
+    * ブラウザは（主に）Webサイトに問い合わせて、HTMLという指示書を取り寄せている
+    * HTMLというテキストを人に見やすく加工している
+* 簡単なHTMLを書いてみる
+* これで全てです
+* 色んなサイトのHTMLソースを見てみる
+    * 「ソース」という言葉は文脈でかわる。
+* 逆に言うとWebサイトがやっていることはブラウザに対してHTMLを送っているだけ
+    * これからのプログラミング学習を通して、自由自在なHTMLを送れるようになります
 
-1. 番号付きリスト1
-    1. 番号付きリスト1_1
-    1. 番号付きリスト1_2
-1. 番号付きリスト2
-1. 番号付きリスト3
+### 余談
+* ローカルのファイルを見る場合とリモートのファイル（Webサイト）を見る場合で、ブラウザに表示されている見た目からはさほど違いはわからない。結局ブラウザを通して何らかのファイルを見ているだけで、違うのはそのファイルが自分のパソコンにおいてあるか、どこか遠くのパソコンにおいてあるかの違いです。
 
-> お世話になります。xxxです。
->
-> ご連絡いただいた、バグの件ですが、仕様です。
 
-> お世話になります。xxxです。
->
-> ご連絡いただいた、バグの件ですが、仕様です。
-> > お世話になります。 yyyです。
-> >
-> > あの新機能バグってるっすね
+## Webブラウザが何をしているか
 
-インストールコマンドは `gem install hoge` です
+### Webブラウザとは「ブラウザ」の一種
+「ブラウザ」という言葉は色々なファイルを見るソフト全般のことを言います。
+インターネットを閲覧するものに限りません。
+Windowsであればエクスプローラー、MacであればFinderもそうです。
 
-normal *italic* normal
-normal _italic_ normal
+そしてインターネットを閲覧するときに使うアプリケーションもブラウザです。
+代表的なものとして、
 
-normal **bold** normal
-normal __bold__ normal
+* Internet Explorer
+* Google Chrome
+* Firefox
+* Safari
 
-***
+などがあります。
 
-___
+ただしほとんどの場合、「ブラウザ」という言葉はWebブラウザを指します。
+この後の説明でブラウザという場合はWebブラウザの意味で使用します。
 
----
+### ブラウザは（主に）Webサイトに問い合わせて、HTMLという指示書を取り寄せている
+[絵]
+ブラウザが行っていることはWebサイトに対しての問い合わせです。
 
-*    *    *
+すでに御存知の通り、アドレスバーにURLを打ち込んだり、リンクを辿ったり、ブックマークを開くことで見たいサイトを閲覧できます。
+例えば`https://twitter.com/`にアクセスすると**twitter**のサイトを見ることが出来ます。
 
-[Google先生](https://www.google.co.jp/)
+これはブラウザがtwitterのサイトに対して**「ページを見せて下さい」と問い合わせしている**と言い換える事ができます。
+では問い合わせた結果どうなるのかと言いますと、サイトからブラウザが表示すべき指示書である**HTMLファイル**をもらいます。
+[絵：ブラウザがtwitterに問い合わせて　htmlファイルを送り返す図]
 
-~~取り消し線~~
+### ブラウザはHTMLというテキストを人に見やすく加工している
+HTMLファイル（＝指示書）はただの文字が書いてあるファイルです。
+試しに**twitter**のHTMLファイルを見てみましょう。
 
-```php
-<?php
+* `https://twitter.com/`にアクセス
+* 右クリック→「ページのソースを表示」をクリック
 
-require_once 'Zend/Uri/Http.php';
+とても長い文字列のページが表示されたと思います。これがHTMLファイルです。
+先程のtwitterのトップページとはまったく見た目が違います。
+ですがブラウザはtwitterにアクセスした結果、twitterのサイトにこのHTMLファイルを送ってもらったのです。
+そしてこのただの文字列であるHTMLファイルを人間が見やすいように加工して`https://twitter.com/`の様な見た目を表現しています。
 
-namespace Location\Web;
+[絵:ソースをブラウザに食べさせるとtwitterの見た目になる図]
 
-interface Factory
-{
-   static function _factory();
-}
 
-abstract class URI extends BaseURI implements Factory
-{
-   abstract function test();
+## 簡単なHTMLを書いてみる
+簡単なHTMLファイルを作ってブラウザで見てみましょう。
+適当なディレクトリに `index.html`というファイルを作って以下のコードを貼り付けてください。
 
-   public static $st1 = 1;
-   const ME = "Yo";
-   var $list = NULL;
-   private $var;
-
-   /**
-    * Returns a URI
-    *
-    * @return URI
-    */
-   static public function _factory($stats = array(), $uri = 'http')
-   {
-       echo __METHOD__;
-       $uri = explode(':', $uri, 0b10);
-       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
-       $desc = 'Multi
-line description';
-
-       // Security check
-       if (!ctype_alnum($scheme)) {
-           throw new Zend_Uri_Exception('Illegal scheme');
-       }
-
-       $this->var = 0 - self::$st;
-       $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \Location\Web\URI::class));
-
-       return [
-           'uri'   => $uri,
-           'value' => null,
-       ];
-   }
-}
-
-echo URI::ME . URI::$st1;
-
-__halt_compiler () ; datahere
-datahere
-datahere */
-datahere
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>はじめてのHTML</title>
+<meta charset="utf-8">
+</head>
+<body>
+これはHTMLファイルです。
+</body>
+</html>
 ```
 
- |header1|header2|header3|
- |:--|--:|:--:|
- |align left|align right|align center|
- |a|b|c|
+そのファインダーまたはエクスプローダーから先程のディレクトリを開いて`index.html`をダブルクリックしてください。下図のように表示されるはずです。
+
+![file](/uploads/attachment/59ce012cb112d33a00df7bc4/スクリーンショット 2017-09-29 18.14.05_c0bc116b64bec53f224370aa506f789e.png)
+
+では次にこのページでHTMLソースを表示してみましょう。
+* 右クリック→「ページのソースを表示」をクリック
+
+
+![file](/uploads/attachment/59ce012cb112d33a00df7bc4/スクリーンショット 2017-09-29 18.19.29_708a6159adb9e96ca6377e260d98c746.png)
+
+自分で書いたHTMLが見れました。一般にこのHTMLの文字列のことをHTMLソースファイルとよく呼びます。
+twitterのHTMLソースとは程遠いですがどちらも同じHTMLソースファイルです。
+
+## 逆に言うとWebサイトがやっていることはブラウザに対してHTMLを送っているだけ
+WebサービスやWebシステムというととても難しいものに聞こえますが、基本的にやっていることはこれだけです。
+
+1. ブラウザはWebサイトに対して問い合わせを送る
+1. Webサイトはブラウザに対してHTMLファイルを送り返す
+1. ブラウザは送られたHTMLファイルを加工して画面に表示する
+
+
+これからプログラミング学習を通して自由自在なHTMLファイルをブラウザに対して送り返せるようになります :sunflower:
