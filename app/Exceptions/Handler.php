@@ -8,6 +8,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -45,6 +46,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+      // 404ページ処理
+        if ($e instanceof NotFoundHttpException) {
+            // pageが見つからない時に表示するページ
+            // resource/error/404.blade.php
+            // return view('404');
+            return redirect('/');
+        }
+
         return parent::render($request, $e);
     }
 }

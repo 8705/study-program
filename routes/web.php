@@ -11,6 +11,7 @@
 |
 */
 use App\Services\Mokuji\Mokuji;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 $router->get('/', function (Mokuji $mokuji) use ($router) {
   $content = "<h1>ようこそ</h1>";
@@ -25,7 +26,7 @@ $router->get('{chapter}/{title}', function (Mokuji $mokuji,$chapter,$title) use 
   $chapter  = urldecode($chapter);
   $title    = urldecode($title);
   $md_file  = MD_PATH."/{$chapter}/{$title}.md";
-  if ( !is_file($md_file)) throw new HttpException("404 Not Found", 1);
+  if ( !is_file($md_file)) throw new NotFoundHttpException("404 Not Found");
 
   $markdown = file_get_contents($md_file);
 
