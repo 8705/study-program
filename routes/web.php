@@ -28,6 +28,8 @@ $router->get('{chapter}/{title}', function (Mokuji $mokuji,$chapter,$title) use 
   $md_file  = MD_PATH."/{$chapter}/{$title}.md";
   if ( !is_file($md_file)) throw new NotFoundHttpException("404 Not Found");
 
+  // 更新時間
+  $mtime    = (new DateTime())->setTimestamp(filemtime($md_file))->format('Y年m月d日 H時i分');
   $markdown = file_get_contents($md_file);
 
   $parser   = new \cebe\markdown\GithubMarkdown();
@@ -35,7 +37,11 @@ $router->get('{chapter}/{title}', function (Mokuji $mokuji,$chapter,$title) use 
   $html     = $parser->parse($markdown);
 
   return view("layout", [
-    'content' => $html,
+    'content' => view('article',[
+      'h1'    => $title,
+      'html'  => $html,
+      'mtime' => $mtime
+    ]),
     'dirs' => $mokuji->generate(),
   ]);
 });

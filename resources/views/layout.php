@@ -23,7 +23,7 @@
 <body>
   <div class="container-fulid">
     <div class="row">
-      <div id="side-menu" class="col-sm-2 col-md-2">
+      <div id="side-menu" class="col-sm-3 col-md-2">
         <p class="link-top"><a href="/">TOP</a></p>
         <ul class="chapers">
           <?php foreach ( $dirs as $dir => $mds ):?>
@@ -38,11 +38,11 @@
           <?php endforeach; ?>
         </ul>
       </div>
-      <div class="col-sm-10 col-md-10"><?php echo $content; ?></div>
+      <div class="col-sm-9 col-md-10"><?php echo $content; ?></div>
     </div>
   </div>
   <footer>
-    footer
+    
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
