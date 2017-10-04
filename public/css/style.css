@@ -39,6 +39,9 @@ pre {
   padding: 0;
   border: none;
 }
+code {
+  font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+}
 code.hljs {
   padding:1em;
 }
