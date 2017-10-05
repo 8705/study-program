@@ -33,7 +33,7 @@ h2 {
   border-bottom: 1px dashed #35acda;
 }
 img {
-  width: 80%;
+  max-width: 60%;
 }
 pre {
   padding: 0;
@@ -128,4 +128,8 @@ code.hljs {
   border-right: 1px solid #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+footer {
+  height: 200px;
 }
